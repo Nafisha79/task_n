@@ -1,58 +1,84 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '';
+
 class Screen2 extends StatefulWidget {
   @override
   _Screen2State createState() => _Screen2State();
 }
 
 class _Screen2State extends State<Screen2> {
+  bool val = false;
+
+  onSwitchValueChanged(bool newVal) {
+    setState(() {
+      val = newVal;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[350],
       appBar: AppBar(
         title: Text('Welcome'),
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.teal,
+        actions: [Switch(value: val, onChanged: (newVal) {
+          onSwitchValueChanged(newVal);
+        })
+        ],
       ),
       body: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                child: Image.asset('images/sky.jpg'),
+
+                child:
+                Image.asset('images/sky.jpg', width: 160.0, height: 200.0),
               ),
               Container(
-                child: Image.network('https://skyandme.ch/wp-content/uploads/2018/12/sky-and-me-header.jpg'),
+                  color: Colors.blueGrey,
+                  width: 160.0,
+                  height: 87.0,
+                  child: Center(
+                    child: Text(
+                      'NAFISHA RAUMA',style: GoogleFonts.,),
+                  )
               ),
             ],
           ),
+          SizedBox(
+            height: 50.0,
+            width: 50.0,
+          ),
           Container(
+            height: 25.0,
             decoration: BoxDecoration(
-              color: Colors.grey,
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors:[Colors.pinkAccent,Colors.grey],
-              ),
+                gradient: LinearGradient(
+                  colors: [Colors.grey, Colors.pinkAccent],
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                )
             ),
             child: RaisedButton(
               child: Text('BACK'),
-              onPressed: (){
+              onPressed: () {
                 Navigator.pop(context);
               },
-
-            )
-
+            ),
           ),
-
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home),title: Text('Home'),),
-          BottomNavigationBarItem(icon: Icon(Icons.message),title: Text('Message')),
-
-
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.message), title: Text('Message')),
         ],
       ),
     );
