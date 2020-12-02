@@ -22,9 +22,12 @@ class _Screen2State extends State<Screen2> {
       appBar: AppBar(
         title: Text('Welcome'),
         backgroundColor: Colors.teal,
-        actions: [Switch(value: val, onChanged: (newVal) {
-          onSwitchValueChanged(newVal);
-        })
+        actions: [
+          Switch(
+              value: val,
+              onChanged: (newVal) {
+                onSwitchValueChanged(newVal);
+              })
         ],
       ),
       body: Column(
@@ -33,19 +36,16 @@ class _Screen2State extends State<Screen2> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-
                 child:
-                Image.asset('images/sky.jpg', width: 160.0, height: 200.0),
+                    Image.asset('images/sky.jpg', width: 160.0, height: 200.0),
               ),
               Container(
                   color: Colors.blueGrey,
                   width: 160.0,
                   height: 87.0,
                   child: Center(
-                    child: Text(
-                      'NAFISHA RAUMA',style: GoogleFonts.,),
-                  )
-              ),
+                    child: Text('NAFISHA RAUMA',style: TextStyle(fontFamily: 'Slabo 27px'),),
+                  )),
             ],
           ),
           SizedBox(
@@ -54,19 +54,18 @@ class _Screen2State extends State<Screen2> {
           ),
           Container(
             height: 25.0,
+            width: 100.0,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.grey, Colors.pinkAccent],
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                )
-            ),
-            child: RaisedButton(
-              child: Text('BACK'),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
+              colors: [Colors.grey, Colors.pinkAccent],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+            )),
+            child: GestureDetector(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                child: Container(child: Center(child: Text('BACK')))),
           ),
         ],
       ),
