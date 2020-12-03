@@ -44,7 +44,10 @@ class _Screen2State extends State<Screen2> {
                   width: 160.0,
                   height: 87.0,
                   child: Center(
-                    child: Text('NAFISHA RAUMA',style: TextStyle(fontFamily: 'Slabo 27px'),),
+                    child: Text(
+                      'NAFISHA RAUMA',
+                      style: TextStyle(fontFamily:'OpenSans',color:Colors.amber,fontSize: 25.0,fontWeight: FontWeight.w700),
+                    ),
                   )),
             ],
           ),
@@ -62,7 +65,7 @@ class _Screen2State extends State<Screen2> {
               end: Alignment.bottomLeft,
             )),
             child: GestureDetector(
-                onTap: (){
+                onTap: () {
                   Navigator.pop(context);
                 },
                 child: Container(child: Center(child: Text('BACK')))),
@@ -83,3 +86,4 @@ class _Screen2State extends State<Screen2> {
     );
   }
 }
+
